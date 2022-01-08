@@ -1,6 +1,6 @@
-# Alohomora Back-End
+# NodeJs, Typescript, TDD, Clean Architecture e SOLID
 
-Project based on Harry Potter's world. It's a huge platform using many types of application and technologies in order to teach and learn about programming and web development.
+Projeto baseado no curso do Rodrigo Manguinho sobre Node, usando Clean Architecture e TDD.
 
 ## Development Tools
 
