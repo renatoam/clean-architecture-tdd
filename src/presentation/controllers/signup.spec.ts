@@ -1,5 +1,5 @@
-import { MissingParamError } from '../errors/missing-param-error';
-import { SignUpController } from './signup';
+import { MissingParamError } from '../errors/missing-param-error'
+import { SignUpController } from './signup'
 
 describe('Sign Up Controller', () => {
   test('Should be 400 if no user name is provided', () => {
@@ -33,5 +33,21 @@ describe('Sign Up Controller', () => {
 
     expect(response.statusCode).toBe(400)
     expect(response.body).toEqual(new MissingParamError('email'))
+  })
+
+  test('Should be 400 if no user password is provided', () => {
+    const sut = new SignUpController()
+    const request = {
+      body: {
+        name: 'any_name',
+        email: 'any_email',
+        passwordConfirmation: 'any_password'
+      }
+    }
+
+    const response = sut.handleRequest(request)
+
+    expect(response.statusCode).toBe(400)
+    expect(response.body).toEqual(new MissingParamError('password'))
   })
 })
