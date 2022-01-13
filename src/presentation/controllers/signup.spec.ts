@@ -13,7 +13,7 @@ describe('Sign Up Controller', () => {
       }
     }
 
-    const response = sut.handleRequest(request)
+    const response = sut.handle(request)
 
     expect(response.statusCode).toBe(400)
     expect(response.body).toEqual(new MissingParamError('name'))
@@ -29,7 +29,7 @@ describe('Sign Up Controller', () => {
       }
     }
 
-    const response = sut.handleRequest(request)
+    const response = sut.handle(request)
 
     expect(response.statusCode).toBe(400)
     expect(response.body).toEqual(new MissingParamError('email'))
@@ -45,7 +45,7 @@ describe('Sign Up Controller', () => {
       }
     }
 
-    const response = sut.handleRequest(request)
+    const response = sut.handle(request)
 
     expect(response.statusCode).toBe(400)
     expect(response.body).toEqual(new MissingParamError('password'))
@@ -56,11 +56,12 @@ describe('Sign Up Controller', () => {
     const request = {
       body: {
         name: 'any_name',
-        email: 'any_email'
+        email: 'any_email',
+        password: 'any_password'
       }
     }
 
-    const response = sut.handleRequest(request)
+    const response = sut.handle(request)
 
     expect(response.statusCode).toBe(400)
     expect(response.body).toEqual(new MissingParamError('passwordConfirmation'))
